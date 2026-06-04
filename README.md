@@ -5,8 +5,8 @@ A small static web app and data server for the "Beyond Football Bingo" game.
 ## Overview
 
 - Frontend: static HTML/CSS/JS under the repository root plus `core_logic/` and `ui_components/`.
-- Backend: simple Python HTTP server in `server.py` that serves static files and `/api/bingo` JSON endpoints.
-- Data: game JSON files in `api/bingo/` and daily challenge payloads in `daily_challenges/`.
+- Backend: simple Python HTTP server in `server.py` that serves static files and `/api/bingo` JSON endpoints from the `api/bingo/` data directory.
+- Data: game JSON files are stored in `api/bingo/` and daily challenge payloads are stored in `daily_challenges/`.
 
 ## Run locally
 
@@ -26,9 +26,15 @@ Then open the app in your browser at `http://localhost:8765`.
 
 ## Important scripts
 
-- `python3 db/generate_daily.py` — generate a daily game JSON from the SQLite database.
+- `python3 db/generate_daily.py` — generate a daily game JSON and write it to `api/bingo/`.
 - `python3 db/seed.py` — populate the SQLite database from JSON data.
 - `node db/seed.js` — seed the SQLite database using `better-sqlite3`.
+- `python3 daily_fetcher.py` — download or rebuild `api/bingo/` game JSON files from external sources.
+
+## Data layout
+
+- `api/bingo/` — authoritative game JSON files served by the API.
+- `daily_challenges/` — daily challenge payloads for the daily game UI.
 
 ## Code structure
 
@@ -36,6 +42,10 @@ Then open the app in your browser at `http://localhost:8765`.
 - `core_logic/App.js` — frontend application logic and UI wiring.
 - `ui_components/` — reusable UI components.
 - `api/bingo/` — source game JSON files.
+
+## Ignore files
+
+- `.gitignore` — repository-wide ignore rules for macOS, Windows, Linux, and Android artifacts.
 
 ## Notes
 
