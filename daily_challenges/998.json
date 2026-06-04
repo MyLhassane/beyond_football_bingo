@@ -1,0 +1,526 @@
+{
+    "gameData": {
+        "remit": [
+            [
+                {
+                    "id": 5,
+                    "name": "Portugal",
+                    "type": 1,
+                    "displayName": "POR"
+                }
+            ],
+            [
+                {
+                    "id": 34,
+                    "name": "Turkey",
+                    "type": 1,
+                    "displayName": "TUR"
+                }
+            ],
+            [
+                {
+                    "id": 3,
+                    "name": "France",
+                    "type": 1,
+                    "displayName": "FRA"
+                },
+                {
+                    "id": 133,
+                    "name": "Manchester City",
+                    "type": 2,
+                    "displayName": "MCI"
+                }
+            ],
+            [
+                {
+                    "id": 33,
+                    "name": "Austria",
+                    "type": 1,
+                    "displayName": "AUT"
+                }
+            ],
+            [
+                {
+                    "id": 149,
+                    "name": "West Ham United",
+                    "type": 2,
+                    "displayName": "WHU"
+                }
+            ],
+            [
+                {
+                    "id": 133,
+                    "name": "Manchester City",
+                    "type": 2,
+                    "displayName": "MCI"
+                }
+            ],
+            [
+                {
+                    "id": 18,
+                    "name": "Senegal",
+                    "type": 1,
+                    "displayName": "SEN"
+                }
+            ],
+            [
+                {
+                    "id": 613,
+                    "name": "Scottish League",
+                    "type": 3,
+                    "displayName": "Scottish League",
+                    "helperText": "Had a spell at a club in Scotland"
+                }
+            ],
+            [
+                {
+                    "id": 10,
+                    "name": "Germany",
+                    "type": 1,
+                    "displayName": "GER"
+                }
+            ],
+            [
+                {
+                    "id": 300,
+                    "name": "Sir Alex Ferguson",
+                    "type": 4,
+                    "displayName": "Ferguson",
+                    "prefix": "Managed by"
+                }
+            ],
+            [
+                {
+                    "id": 315,
+                    "name": "Cristiano Ronaldo",
+                    "type": 5,
+                    "displayName": "C. Ronaldo",
+                    "prefix": "Played with"
+                }
+            ],
+            [
+                {
+                    "id": 109,
+                    "name": "Rangers",
+                    "type": 2,
+                    "displayName": "RAN"
+                }
+            ],
+            [
+                {
+                    "id": 159,
+                    "name": "OGC Nice",
+                    "type": 2,
+                    "displayName": "NCE"
+                }
+            ],
+            [
+                {
+                    "id": 354,
+                    "name": "World Cup",
+                    "type": 6,
+                    "displayName": "World Cup",
+                    "suffix": "winner",
+                    "helperText": "data is available from 1958 onwards"
+                }
+            ],
+            [
+                {
+                    "id": 425,
+                    "name": "Champions League || European Cup",
+                    "type": 6,
+                    "displayName": "UCL",
+                    "suffix": "winner",
+                    "helperText": "covers Champions League and European Cup"
+                }
+            ],
+            [
+                {
+                    "id": 426,
+                    "name": "Uefa Cup || Europa League",
+                    "type": 6,
+                    "displayName": "Uefa Cup / Europa League",
+                    "suffix": "winner"
+                }
+            ]
+        ],
+        "players": [
+            {
+                "id": 15654,
+                "f": "Lampard",
+                "g": "Frank",
+                "v": [
+                    133,
+                    149,
+                    425,
+                    426
+                ],
+                "p": "CM"
+            },
+            {
+                "id": 9512,
+                "f": "Carrick",
+                "g": "Michael",
+                "v": [
+                    149,
+                    300,
+                    315,
+                    425,
+                    426
+                ]
+            },
+            {
+                "id": 17268,
+                "f": "Almiron",
+                "g": "Miguel",
+                "v": []
+            },
+            {
+                "id": 36132,
+                "f": "Yilmaz",
+                "g": "Burak",
+                "v": [
+                    34
+                ],
+                "p": "ST"
+            },
+            {
+                "id": 5273,
+                "f": "Meireles",
+                "g": "Raul",
+                "v": [
+                    5,
+                    315,
+                    425
+                ]
+            },
+            {
+                "id": 717,
+                "f": "Vieira",
+                "g": "Patrick",
+                "v": [
+                    3,
+                    133,
+                    354,
+                    425
+                ],
+                "p": "CDM"
+            },
+            {
+                "id": 43003,
+                "f": "Kvaratskhelia",
+                "g": "Khvicha",
+                "v": [
+                    425
+                ]
+            },
+            {
+                "id": 401,
+                "f": "Modeste",
+                "g": "Anthony",
+                "v": [
+                    3,
+                    159
+                ]
+            },
+            {
+                "id": 5327,
+                "f": "Milner",
+                "g": "James",
+                "v": [
+                    133,
+                    425
+                ]
+            },
+            {
+                "id": 24190,
+                "f": "Baumgartner",
+                "g": "Christoph",
+                "v": [
+                    33
+                ]
+            },
+            {
+                "id": 787,
+                "f": "Gattuso",
+                "g": "Gennaro",
+                "v": [
+                    109,
+                    354,
+                    425,
+                    613
+                ]
+            },
+            {
+                "id": 10295,
+                "f": "Evra",
+                "g": "Patrice",
+                "v": [
+                    3,
+                    149,
+                    159,
+                    300,
+                    315,
+                    425
+                ]
+            },
+            {
+                "id": 3027,
+                "f": "Chicharito",
+                "g": "",
+                "v": [
+                    149,
+                    300,
+                    315,
+                    426
+                ]
+            },
+            {
+                "id": 9171,
+                "f": "Larsson",
+                "g": "Henrik",
+                "v": [
+                    300,
+                    315,
+                    425,
+                    613
+                ],
+                "p": "ST"
+            },
+            {
+                "id": 2955,
+                "f": "Kroos",
+                "g": "Toni",
+                "v": [
+                    10,
+                    315,
+                    354,
+                    425
+                ]
+            },
+            {
+                "id": 4522,
+                "f": "Kimmich",
+                "g": "Joshua",
+                "v": [
+                    10,
+                    425
+                ]
+            },
+            {
+                "id": 25172,
+                "f": "Mendes",
+                "g": "Nuno",
+                "v": [
+                    5,
+                    315,
+                    425
+                ],
+                "p": "LB"
+            },
+            {
+                "id": 26938,
+                "f": "Colwill",
+                "g": "Levi",
+                "v": []
+            },
+            {
+                "id": 23995,
+                "f": "Pogba",
+                "g": "Paul",
+                "v": [
+                    3,
+                    300,
+                    315,
+                    354,
+                    426
+                ]
+            },
+            {
+                "id": 9276,
+                "f": "Fati",
+                "g": "Ansu",
+                "v": []
+            },
+            {
+                "id": 7278,
+                "f": "Cisse",
+                "g": "Papiss Demba",
+                "v": [
+                    18
+                ]
+            },
+            {
+                "id": 1285,
+                "f": "Ljungberg",
+                "g": "Freddie",
+                "v": [
+                    149,
+                    613
+                ]
+            },
+            {
+                "id": 16717,
+                "f": "Bremer",
+                "g": "",
+                "v": []
+            },
+            {
+                "id": 1060,
+                "f": "Calhanoglu",
+                "g": "Hakan",
+                "v": [
+                    34
+                ]
+            },
+            {
+                "id": 1934,
+                "f": "Adriano",
+                "g": "",
+                "v": [],
+                "p": "ST"
+            },
+            {
+                "id": 10487,
+                "f": "Golovin",
+                "g": "Aleksandr",
+                "v": []
+            },
+            {
+                "id": 1267,
+                "f": "Anelka",
+                "g": "Nicolas",
+                "v": [
+                    3,
+                    133,
+                    425
+                ]
+            },
+            {
+                "id": 32643,
+                "f": "Maguire",
+                "g": "Harry",
+                "v": [
+                    315
+                ]
+            },
+            {
+                "id": 1075,
+                "f": "Paqueta",
+                "g": "Lucas",
+                "v": [
+                    149
+                ]
+            },
+            {
+                "id": 10530,
+                "f": "Camara",
+                "g": "Mohamed",
+                "v": [],
+                "p": "CDM"
+            },
+            {
+                "id": 2674,
+                "f": "Molina",
+                "g": "Nahuel",
+                "v": [
+                    354
+                ]
+            },
+            {
+                "id": 4513,
+                "f": "Alonso",
+                "g": "Xabi",
+                "v": [
+                    315,
+                    354,
+                    425
+                ]
+            },
+            {
+                "id": 15700,
+                "f": "Dias",
+                "g": "Ruben",
+                "v": [
+                    5,
+                    133,
+                    315,
+                    425
+                ]
+            },
+            {
+                "id": 1065,
+                "f": "Silva",
+                "g": "Andre",
+                "v": [
+                    5,
+                    315
+                ],
+                "p": "ST"
+            },
+            {
+                "id": 8309,
+                "f": "Schlager",
+                "g": "Xaver",
+                "v": [
+                    33
+                ]
+            },
+            {
+                "id": 2552,
+                "f": "Gimenez",
+                "g": "Jose Maria",
+                "v": [
+                    426
+                ]
+            },
+            {
+                "id": 1319,
+                "f": "Toure",
+                "g": "Kolo",
+                "v": [
+                    133,
+                    613
+                ]
+            },
+            {
+                "id": 42945,
+                "f": "Hamsik",
+                "g": "Marek",
+                "v": []
+            },
+            {
+                "id": 2069,
+                "f": "Schick",
+                "g": "Patrik",
+                "v": []
+            },
+            {
+                "id": 5195,
+                "f": "Diouf",
+                "g": "El-Hadji",
+                "v": [
+                    18,
+                    109,
+                    613
+                ]
+            },
+            {
+                "id": 1426,
+                "f": "Gervinho",
+                "g": "",
+                "v": []
+            },
+            {
+                "id": 19167,
+                "f": "Ba",
+                "g": "Demba",
+                "v": [
+                    18,
+                    149,
+                    426
+                ]
+            }
+        ]
+    }
+}

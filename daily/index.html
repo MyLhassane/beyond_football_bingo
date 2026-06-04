@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beyond Bingo Daily - Play Now</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../ui_components/globals.css" />
+  <link rel="stylesheet" href="../ui_components/index.css" />
+  <link rel="icon" type="image/x-icon" href="../ui_components/favicon.ico" />
+  <style>
+    :root {
+      --font-primary: 'Bebas Neue', sans-serif;
+      --font-secondary: 'Inter', sans-serif;
+    }
+    body {
+      background: #1e0d30;
+      min-height: 100vh;
+      font-family: var(--font-secondary);
+      color: #fff;
+    }
+    .navbar {
+      background: #1e0d30;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .banner {
+      background: #3730a3;
+      text-align: center;
+      color: #fff;
+      padding: 0.375rem 0.5rem 0.5rem;
+      font-size: 0.875rem;
+    }
+    .banner a { color: #fff; text-decoration: none; }
+    .banner .highlight { color: #ceff27; font-weight: 700; text-decoration: underline; }
+    .cell-req + .cell-req:before {
+      content: ' + ';
+      opacity: 0.5;
+      font-family: var(--font-secondary);
+      font-size: 11px;
+    }
+    .cell-filled {
+      background: linear-gradient(135deg, #10b981, #059669) !important;
+      border-color: #047857 !important;
+    }
+    .cell-filled.wildcard {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b) !important;
+      border-color: #d97706 !important;
+    }
+    .cell-incorrect {
+      animation: shake 0.4s ease-in-out;
+      border-color: #ef4444 !important;
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-4px); }
+      40% { transform: translateX(4px); }
+      60% { transform: translateX(-3px); }
+      80% { transform: translateX(3px); }
+    }
+    .modal-overlay {
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+    }
+    .toast-enter {
+      animation: slideDown 0.3s ease-out;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .line-highlight {
+      box-shadow: inset 0 0 0 2px rgba(206, 255, 39, 0.6);
+    }
+    .bingo-title-glow {
+      text-shadow: 0 0 20px rgba(206, 255, 39, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="navbar">
+    <div class="navbar-content px-2 flex items-center justify-between">
+      <div class="w-8"></div>
+      <div>
+        <a href="../index.html">
+          <h1 class="text-2xl sm:text-3xl font-bold text-white text-center tracking-wider font-bebas-neue mt-1">Beyond Bingo</h1>
+        </a>
+      </div>
+      <div class="flex items-center gap-1">
+        <button id="infoBtn" class="h-10 w-8 flex items-center justify-center" aria-label="Info">
+          <svg class="h-6 w-6 stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+          </svg>
+        </button>
+        <button id="statsBtn" class="h-10 w-8 flex items-center justify-center" aria-label="Statistics">
+          <svg class="h-6 w-6 stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner -->
+  <div class="banner">
+    <div class="font-light text-sm sm:text-base">
+      <a href="../index.html">Beyond Bingo Daily Challenge</a>
+    </div>
+  </div>
+
+  <!-- Game Area -->
+  <div class="content-wrapper">
+    <div class="content-container">
+      <div class="content-container-inner py-4">
+        <main class="game min-h-[calc(70svh)]" id="gameRoot">
+          <div class="inner-container flex flex-col items-center" style="max-width:440px;margin:0 auto;width:100%"></div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info Modal -->
+  <div id="infoModal" class="modal-overlay fixed inset-0 z-40 hidden flex items-center justify-center p-4">
+    <div class="bg-[#1e0d30] rounded-2xl border border-[#4b3c5a] w-full max-w-md max-h-[80vh] overflow-y-auto shadow-2xl">
+      <div class="flex items-center justify-between p-5 border-b border-white/10">
+        <h2 class="font-bold uppercase tracking-wide">How to Play</h2>
+        <button id="infoClose" class="text-white/60 hover:text-white">
+          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" /></svg>
+        </button>
+      </div>
+      <div class="p-5 text-sm text-white/80 leading-relaxed space-y-3">
+        <p>You are given 16 different football-related categories arranged in a 4x4 grid. Each turn, a player name is shown &mdash; your task is to tap the cell that matches the player.</p>
+        <p><strong class="text-white">Correct:</strong> The cell fills with the player's name and turns green.</p>
+        <p><strong class="text-white">Wrong:</strong> The cell flashes red and you move to the next player.</p>
+        <p><strong class="text-white">Goal:</strong> Fill all 16 cells to get <strong class="text-[#ceff27]">BINGO</strong>!</p>
+        <p class="pt-2 border-t border-white/10"><strong class="text-white">Wildcard:</strong> If the current player matches multiple empty cells, use the wildcard to fill them all at once.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Modal -->
+  <div id="statsModal" class="modal-overlay fixed inset-0 z-40 hidden flex items-center justify-center p-4">
+    <div class="bg-[#1e0d30] rounded-2xl border border-[#4b3c5a] w-full max-w-sm shadow-2xl">
+      <div class="flex items-center justify-between p-5 border-b border-white/10">
+        <h2 class="font-bold uppercase tracking-wide">Statistics</h2>
+        <button id="statsClose" class="text-white/60 hover:text-white">
+          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" /></svg>
+        </button>
+      </div>
+      <div id="statsBody" class="p-5 text-center text-white/60">
+        <p>No games played yet.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed z-20 left-1/2 -translate-x-1/2 top-24 hidden max-w-sm w-full px-4"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
