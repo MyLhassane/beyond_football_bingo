@@ -5,7 +5,7 @@ from urllib.error import HTTPError
 
 def bulk_download_categories():
     # 1. تحديد المسارات الأساسية
-    json_dir = "daily_challenges"
+    json_dir = "api/bingo"
     output_dir = os.path.join("media", "categories")
     
     # إنشاء مجلد حفظ الصور إذا لم يكن موجوداً

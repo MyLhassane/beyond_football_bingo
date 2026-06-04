@@ -16,7 +16,7 @@ import sys
 from datetime import date, datetime
 
 DB_PATH = os.path.join(os.path.dirname(__file__), 'beyond_bingo.db')
-OUTPUT_DIR = os.path.join(os.path.dirname(__file__), '..', 'core_logic')
+OUTPUT_DIR = os.path.join(os.path.dirname(__file__), '..', 'api', 'bingo')
 
 # Seeded game data (36 cells, ~100+ players in full DB)
 # For now, we expand from the single game 996 using combinatorial shuffles
@@ -224,12 +224,12 @@ def generate_daily_game(target_date=None, force_game_id=None):
     return output
 
 def update_games_index():
-    """Scan core_logic/ for all .json files (except index) and write an index."""
+    """Scan api/bingo/ for all .json files and write index.json."""
     import glob
     games = []
     for fpath in glob.glob(os.path.join(OUTPUT_DIR, '*.json')):
         fname = os.path.basename(fpath)
-        if fname == 'games_index.json':
+        if fname == 'index.json':
             continue
         gid = int(fname.replace('.json', ''))
         try:
@@ -240,7 +240,7 @@ def update_games_index():
         except Exception:
             games.append({'id': gid, 'players': 0})
     games.sort(key=lambda x: x['id'])
-    idx_path = os.path.join(OUTPUT_DIR, 'games_index.json')
+    idx_path = os.path.join(OUTPUT_DIR, 'index.json')
     with open(idx_path, 'w') as f:
         json.dump({'games': games}, f)
     print(f"Index updated: {len(games)} games")

@@ -6,7 +6,7 @@ import {
   TOTAL_CELLS
 } from '../core_logic/bingoEngine.js';
 
-const API_BASE = '/api/bingo';
+const API_BASE = '../api/bingo';
 const MEDIA_BASE = '../media/categories';
 
 let state = null;
@@ -446,7 +446,7 @@ function renderPagination() {
 async function loadGame(id) {
   const grid = document.getElementById('bingoGrid');
   if (grid) grid.remove();
-  const resp = await fetch(`${API_BASE}/${id}`);
+  const resp = await fetch(`${API_BASE}/${id}.json`);
   if (!resp.ok) {
     innerContainer.innerHTML = `<div class="text-center py-12 text-white/40"><p>Game ${id} not available.</p></div>`;
     return;
@@ -462,7 +462,7 @@ async function loadGame(id) {
 }
 
 async function initGame() {
-  const resp = await fetch(`${API_BASE}/`);
+  const resp = await fetch(`${API_BASE}/index.json`);
   if (!resp.ok) {
     innerContainer.innerHTML = `<div class="text-center py-12 text-white/40"><p>Cannot load games list. Make sure the API server is running.</p></div>`;
     return;

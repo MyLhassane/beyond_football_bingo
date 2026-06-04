@@ -15,7 +15,6 @@ Usage:
 
 import json
 import os
-import re
 import sys
 import mimetypes
 from http.server import HTTPServer, SimpleHTTPRequestHandler
@@ -64,13 +63,7 @@ class APIHandler(SimpleHTTPRequestHandler):
         super().do_GET()
 
     def handle_api(self, path):
-        # GET /api/bingo
-        if path == '/api/bingo':
-            games = list_games()
-            self.send_json({'games': games})
-            return
-
-        # GET /api/bingo/daily
+        # /api/bingo/daily — latest game
         if path == '/api/bingo/daily':
             games = list_games()
             if not games:
@@ -84,15 +77,19 @@ class APIHandler(SimpleHTTPRequestHandler):
             self.send_json(data)
             return
 
-        # GET /api/bingo/<id>
-        match = re.match(r'^/api/bingo/(\d+)$', path)
-        if match:
-            game_id = int(match.group(1))
-            data = load_game(game_id)
-            if not data:
-                self.send_json({'error': f'Game {game_id} not found'}, 404)
-                return
-            self.send_json(data)
+        # Serve static files from api/bingo/
+        # /api/bingo/    → index.json
+        # /api/bingo/996 → 996.json
+        # /api/bingo/996.json → 996.json
+        rel = path[len('/api/bingo/'):].lstrip('/')
+        if not rel:
+            rel = 'index.json'
+        if not rel.endswith('.json'):
+            rel += '.json'
+        file_path = os.path.join(DATA_DIR, rel)
+        if os.path.exists(file_path):
+            with open(file_path, encoding='utf-8') as f:
+                self.send_json(json.load(f))
             return
 
         self.send_json({'error': 'Not found'}, 404)
